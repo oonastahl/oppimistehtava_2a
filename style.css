@@ -10,73 +10,52 @@ body {
   background: #f3f4f6;
 }
 
-.page {
+.container {
   display: grid;
   grid-template-areas:
-    "header header"
-    "navigation navigation"
-    "main sidebar"
-    "footer footer";
-  grid-template-columns: minmax(0, 3fr) minmax(12rem, 1fr);
+    "nav header header"
+    "nav main main"
+    "nav mainos1 mainos2";
+  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-rows: auto 1fr auto;
   gap: 1rem;
   width: min(100% - 2rem, 72rem);
   margin: 1rem auto;
+  justify-content: center;
+  align-content: center;
 }
 
-.header,
-.navigation,
-.main,
-.sidebar,
-.footer {
-  padding: 1.25rem;
-  border-radius: 0.5rem;
-  background: #fff;
-}
-
-.header {
+header {
   grid-area: header;
+  background: #4f46e5;
+  color: white;
+  padding: 1rem;
 }
 
-.header h1,
-.main h2,
-.sidebar h2 {
-  margin-top: 0;
-}
-
-.navigation {
-  grid-area: navigation;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  background: #1f2937;
-}
-
-.navigation a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.navigation a:hover {
-  text-decoration: underline;
-}
-
-.main {
+main {
   grid-area: main;
-  min-height: 16rem;
+  background: white;
+  padding: 1rem;
 }
 
-.sidebar {
-  grid-area: sidebar;
+nav {
+  grid-area: nav;
+  background: #e5e7eb;
+  padding: 1rem;
 }
 
-.footer {
-  grid-area: footer;
-  text-align: center;
+.mainos1 {
+  grid-area: mainos1;
+  background: #f9fafb;
+  padding: 1rem;
 }
 
-.footer p {
-  margin: 0;
+.mainos2 {
+  grid-area: mainos2;
+  background: #f9fafb;
+  padding: 1rem;
 }
+
 
 @media (max-width: 600px) {
   .page {
