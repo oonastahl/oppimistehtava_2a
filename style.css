@@ -36,14 +36,22 @@ main {
   grid-area: main;
   background-color: #f7d3f5;
   padding: 20px;
+}
+
+.kortit {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
 }
 
+@media (min-width: 601px) {
+  .kortit {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (min-width: 901px) {
-  .main {
+  .kortit {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
@@ -78,8 +86,6 @@ nav {
   background: #f9fafb;
   padding: 1rem;
 }
-
-
 @media (max-width: 600px) {
   .container {
     grid-template-areas:
@@ -88,10 +94,6 @@ nav {
       "main"
       "mainos1"
       "mainos2";
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .kortit {
     grid-template-columns: minmax(0, 1fr);
   }
 }
