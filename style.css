@@ -13,8 +13,8 @@ body {
 .container {
   display: grid;
   grid-template-areas:
-    "nav header"
-    "nav main"
+    "nav header header"
+    "nav main main"
     "nav mainos1 mainos2";
   grid-template-columns: 1fr 2fr 2fr;
   grid-template-rows: auto 1fr auto;
@@ -90,10 +90,11 @@ nav {
   .container {
     grid-template-areas:
       "header"
-      "navigation"
+      "nav"
       "main"
       "mainos1"
       "mainos2";
     grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(5, auto);
   }
 }
