@@ -15,7 +15,7 @@ body {
   grid-template-areas:
     "nav header header"
     "nav main main"
-    "nav mainos1 mainos2";
+    "nav mainos mainos";
   grid-template-columns: 1fr 2fr 2fr;
   grid-template-rows: auto 1fr auto;
   gap: 1rem;
@@ -27,21 +27,34 @@ body {
 
 header {
   grid-area: header;
-  background: #4f46e5;
+  width: 100%;
+  height: 200px;
+  background-image: url('kuvat/kansikuvaa.jpg');
+  background-size: cover;
   color: white;
   padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  text-shadow: 0 1px 3px #000;
+}
+
+header h1 {
+  max-width: 100%;
+  hyphens: manual;
 }
 
 .sidebar {
   grid-area: sidebar;
-  background: #e5e7eb;
+  background: #f5d8ee;
   padding: 1rem;
 }
 
 .sidebar a {
   display: block;
   margin-bottom: 0.5rem;
-  color: #275eab;
+  color: #c1005e;
   text-decoration: none;
 }
 
@@ -51,7 +64,7 @@ header {
 
 main {
   grid-area: main;
-  background-color: #f7d3f5;
+  background-color: #f9fafb;
   padding: 20px;
 }
 
@@ -86,32 +99,62 @@ main {
   font-size: 1.1rem;
 }
 
+.korttikuva { width: 100%; max-width: 300px;
+  height: 200px; /* korkeus */
+  /* Pakottaa kuvan täyttämään alueen vääristymättä */
+  object-fit: cover;
+  /* Kohdistus: esim. 20% vasemmalta ja 30% ylhäältä */
+  object-position: 20% 30%;
+}
+
 nav {
   grid-area: nav;
-  background: #e5e7eb;
+  background: #f5d8ee;
   padding: 1rem;
+  color: #32282d;
 }
 
 .mainos1 {
-  grid-area: mainos1;
+  grid-area: mainos;
+  display: grid;
+  place-items: center;
   background: #f9fafb;
   padding: 1rem;
 }
 
 .mainos2 {
-  grid-area: mainos2;
-  background: #f9fafb;
+  grid-area: mainos;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: white;
   padding: 1rem;
+  text-align: center;
+  text-shadow: 0 1px 3px #000;
 }
+
+.mainos2 h2 {
+  max-width: 500px;
+  hyphens: manual;
+}
+
+.mainoskuva {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 20% 30%;
+}
+
 @media (max-width: 600px) {
   .container {
     grid-template-areas:
       "nav header"
-      "nav"
       "nav main"
-      "nav mainos1"
-      "nav mainos2";
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: repeat(5, auto);
+      "nav mainos";
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    grid-template-rows: repeat(3, auto);
   }
 }
